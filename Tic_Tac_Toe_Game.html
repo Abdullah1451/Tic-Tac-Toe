@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html>
+
+   <head>
+   
+      <title>Tic Tac Toe</title>
+      
+      <!-- For Tag Styling -->
+      <style type="text/css">
+         
+         .table{
+            width: 400px;
+            height: 270px;
+         }
+
+         table,td,th{
+            border: 4px solid black;
+            border-collapse: collapse;
+         }
+
+         .td{
+            text-align: center;
+            font-size: 2.8rem;
+            width: 20%;
+            height: 80px;
+            font-family: cursive;
+            font-weight: bold;
+         }
+
+      </style>
+      
+      
+      <!-- For Class Styling -->
+      <style type="text/css">
+      
+         .button{
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #EBEBEB;
+            border:none;
+            width: 100%;
+            height: 100%;
+            font-size: 1.8rem;
+            font-family: fantasy;
+         }
+      
+         .div_table{
+            padding-left: 170px;
+         }
+         
+         .again{
+            width: 125px;
+            height: 50px;
+            margin-left: 150px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            background-color: #004BA4;
+            border-width: 2px;
+            border-style: inset;
+            font-family: cursive;
+            font-style: italic;
+            font-weight: bold;
+         }
+         
+         .undo{
+            width: 125px;
+            height: 50px;
+            margin-left: 169px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            background-color: #004BA4;
+            border-width: 2px;
+            border-style: inset;
+            font-family: cursive;
+            font-style: italic;
+            font-weight: bold;
+         }
+         .table2{
+         	background-color: #D3C9FF;
+         	width: 320px;
+         	height: 170px;
+         	margin-top: 5px;
+         	margin-left: 200px;
+         }
+         
+         .th{
+         	text-align: center;
+            font-size: 1.9rem;
+            font-family: cursive;
+            font-style: italic;
+         }
+         
+         .td2{
+         	text-align: center;
+            font-size: 1.7rem;
+            font-family: fantasy;
+         }
+         
+         .reset{
+         	width: 125px;
+            height: 50px;
+            margin-left: 397px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            background-color: #004BA4;
+            border-width: 2px;
+            border-style: inset;
+            font-family: cursive;
+            font-style: italic;
+            font-weight: bold;
+         }
+      
+      </style>
+   
+   </head>
+
+
+   <body style="background-color: #DDDDDD;">
+   
+      <div>    
+         <h1 style="font-size: 3rem; text-align: center;"><i>Tic Tac Toe</i></h1>
+      </div>
+      
+      
+      
+      <div>
+      
+	      <div>
+		         
+		     <p style="font-size: 2.5rem; text-align: center; color: red"><b><i id="winner"></i></b></p>
+		
+		  </div>
+		         
+	      <br>
+      
+	      <div style="float: left; width:50%;">
+	      
+		      <div id="demo">
+		      
+		   
+		         <div class="div_table">
+		            <table class="table">
+		   
+		               <tr>
+		                  
+		                  <td id="td1" class="td"> <button id="btn1" class="button" type="submit" onclick="fun(1)">  --  </button> </td>
+		                  
+		                  <td id="td2" class="td"> <button id="btn2" class="button" type="submit" onclick="fun(2)">  --  </button> </td>
+		   
+		                  <td id="td3" class="td"> <button id="btn3" class="button" type="submit" onclick="fun(3)">  --  </button> </td>
+		   
+		               </tr>
+		   
+		               <tr>
+		                  
+		                  <td id="td4" class="td"> <button id="btn4" class="button" type="submit" onclick="fun(4)">  --  </button> </td>
+		                  
+		                  <td id="td5" class="td"> <button id="btn5" class="button" type="submit" onclick="fun(5)">  --  </button> </td>
+		   
+		                  <td id="td6" class="td"> <button id="btn6" class="button" type="submit" onclick="fun(6)">  --  </button> </td>
+		   
+		               </tr>
+		   
+		               <tr>
+		                  
+		                  <td id="td7" class="td"> <button id="btn7" class="button" type="submit" onclick="fun(7)">  --  </button> </td>
+		                  
+		                  <td id="td8" class="td"> <button id="btn8" class="button" type="submit" onclick="fun(8)">  --  </button> </td>
+		   
+		                  <td id="td9" class="td"> <button id="btn9" class="button" type="submit" onclick="fun(9)">  --  </button> </td>
+		   
+		               </tr>
+		   
+		            </table>
+		         </div>  
+		
+		      </div>
+		      
+		      <br><br><br>
+		      
+		      <div>
+		         
+				<button class="undo" type="button" onclick="Undo()">Undo</button>
+				<button class="again" type="button" onclick="loadDoc()">Play Again</button>
+		      
+		      </div>
+		      
+		      
+		  </div>   
+		   
+		      
+		  <div  style="float: left; width:50%;">
+			  
+			  <div>
+			  
+				  <table class="table2">
+				  
+				  	 <tr>
+				  	 
+				  	 	<th class="th">Player 1</th>
+				  	 	<th class="th">Player 2</th>
+				  	 
+				  	 </tr>
+				  
+					 <tr>
+					 
+						<td class="td2" id="td21">  0  </td>
+						<td class="td2" id="td22">  0  </td>
+					 </tr>
+					 
+				  </table>
+				  
+			  </div>
+			  
+		    
+		  
+			  <br><br><br>
+			  
+			  <div>
+			  
+			  	<button class="reset" type="button" onclick="reset()">Reset</button>
+			  
+			  </div> 
+			  
+		  </div>   
+	
+      </div>
+      
+      <script>
+      
+         function loadDoc() { // FOR PLAYING AGAIN
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById("demo").innerHTML = this.responseText;
+               }
+            };
+            xhttp.open("GET", "Tic_Tac_Toe.html", true);
+            xhttp.send();
+            
+            click = 0;
+            win = false
+            undo = 0;
+            
+            if(win == false){
+            	document.getElementById("winner").innerHTML = "  ";
+            }
+         }
+         
+      </script>
+   
+      <script>
+         click = 0;
+         win = false;
+         undo = 0;
+         player1 = 0;
+         player2 = 0;
+
+         function fun(x){
+        	 click++;
+
+            if (click%2 == 0){
+               document.getElementById("td"+x).innerHTML = "X";
+               document.getElementById("td"+x).style.backgroundColor = "#00E9D4";
+               undo = x;
+
+               //calling a function to check1
+               check1();
+
+               if(win == true){ // DISABLING BUTTON
+                  for(var i=1; i <= 9; i++){ 
+                     if(document.getElementById("btn"+i) != null){
+                        document.getElementById("btn"+i).disabled = true;
+                     }
+                  }
+                  
+               }//Closing if Block
+            }//Closing if Block
+            else if(click%2 != 0){
+               document.getElementById("td"+x).innerHTML = "0";
+               document.getElementById("td"+x).style.backgroundColor = "#15E900";
+               undo = x;
+               
+               //calling a function to check
+               check();
+
+               if(win == true){ // DISABLING BUTTON
+                  for(var i=1; i <= 9; i++){ 
+                     if(document.getElementById("btn"+i) != null){
+                        document.getElementById("btn"+i).disabled = true;
+                     }
+                  }
+               }
+               
+            }//Closing else if Block
+            
+            if(click == 9 && win == false){
+         	   document.getElementById("winner").innerHTML = "Tie";
+            }
+            
+         }//Closing Function fun Block
+
+
+         function check(){ // CHECKING ALL POSSIBLE TRIPLETS OF "0"
+            n1 = document.getElementById("td1").textContent;
+            n2 = document.getElementById("td2").textContent;
+            n3 = document.getElementById("td3").textContent;
+            n4 = document.getElementById("td4").textContent;
+            n5 = document.getElementById("td5").textContent;
+            n6 = document.getElementById("td6").textContent;
+            n7 = document.getElementById("td7").textContent;
+            n8 = document.getElementById("td8").textContent;
+            n9 = document.getElementById("td9").textContent;
+
+            if(n1 == "0" && n2 == "0" && n3 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td1").style.backgroundColor ="#FF4900";
+               document.getElementById("td2").style.backgroundColor ="#FF4900";
+               document.getElementById("td3").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n4 == "0" && n5 == "0" && n6 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td4").style.backgroundColor ="#FF4900";
+               document.getElementById("td5").style.backgroundColor ="#FF4900";
+               document.getElementById("td6").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n7 == "0" && n8 == "0" && n9 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td7").style.backgroundColor ="#FF4900";
+               document.getElementById("td8").style.backgroundColor ="#FF4900";
+               document.getElementById("td9").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n1 == "0" && n4 == "0" && n7 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td1").style.backgroundColor ="#FF4900";
+               document.getElementById("td4").style.backgroundColor ="#FF4900";
+               document.getElementById("td7").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n2 == "0" && n5 == "0" && n8 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td2").style.backgroundColor ="#FF4900";
+               document.getElementById("td5").style.backgroundColor ="#FF4900";
+               document.getElementById("td8").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n3 == "0" && n6 == "0" && n9 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td3").style.backgroundColor ="#FF4900";
+               document.getElementById("td6").style.backgroundColor ="#FF4900";
+               document.getElementById("td9").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n1 == "0" && n5 == "0" && n9 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td1").style.backgroundColor ="#FF4900";
+               document.getElementById("td5").style.backgroundColor ="#FF4900";
+               document.getElementById("td9").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            else if(n3 == "0" && n5 == "0" && n7 == "0"){
+               document.getElementById("winner").innerHTML = "Winner Is 0";
+               document.getElementById("td3").style.backgroundColor ="#FF4900";
+               document.getElementById("td5").style.backgroundColor ="#FF4900";
+               document.getElementById("td7").style.backgroundColor ="#FF4900";
+               win = true;
+               player1++;
+            }
+            
+            document.getElementById("td21").innerHTML = player1;
+         }
+
+         function check1(){ // CHECKING ALL POSSIBLE TRIPLETS OF "X"
+            n1 = document.getElementById("td1").textContent;
+            n2 = document.getElementById("td2").textContent;
+            n3 = document.getElementById("td3").textContent;
+            n4 = document.getElementById("td4").textContent;
+            n5 = document.getElementById("td5").textContent;
+            n6 = document.getElementById("td6").textContent;
+            n7 = document.getElementById("td7").textContent;
+            n8 = document.getElementById("td8").textContent;
+            n9 = document.getElementById("td9").textContent;
+
+            if(n1 == "X" && n2 == "X" && n3 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td1").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td2").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td3").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n4 == "X" && n5 == "X" && n6 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td4").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td5").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td6").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n7 == "X" && n8 == "X" && n9 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td7").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td8").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td9").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n1 == "X" && n4 == "X" && n7 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td1").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td4").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td7").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n2 == "X" && n5 == "X" && n8 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td2").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td5").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td8").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n3 == "X" && n6 == "X" && n9 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td3").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td6").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td9").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n1 == "X" && n5 == "X" && n9 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td1").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td5").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td9").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            else if(n3 == "X" && n5 == "X" && n7 == "X"){
+               document.getElementById("winner").innerHTML = "Winner Is X";
+               document.getElementById("td3").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td5").style.backgroundColor ="#FF1D1D";
+               document.getElementById("td7").style.backgroundColor ="#FF1D1D";
+               win = true;
+               player2++;
+            }
+            
+            document.getElementById("td22").innerHTML = player2;
+         }
+         
+         
+         function Undo(){
+        	 if(win == false && undo != 0){
+        		 document.getElementById("td"+undo).innerHTML = "<button id=\"btn"+undo+"\" class=\"button\" type=\"submit\" onclick=\"fun("+undo+")\">  --  </button>";
+                 document.getElementById("td"+undo).style.backgroundColor = "#EBEBEB";
+                 click--;
+        	 }
+         }
+         
+         function reset(){
+        	 player1 = 0;
+        	 player2 = 0;
+        	 document.getElementById("td21").innerHTML = "0";
+        	 document.getElementById("td22").innerHTML = "0";
+        	 loadDoc();
+         }
+         
+      </script>
+   
+   </body>
+
+</html>
